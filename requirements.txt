@@ -1,0 +1,10 @@
+telethon~=1.44.0
+python-dotenv
+fastapi~=0.141.1
+uvicorn[standard]
+sqlalchemy~=2.0.52
+asyncpg
+alembic
+pydantic-settings~=2.15.0
+pydantic~=2.13.5
+aiogram~=3.31.0
