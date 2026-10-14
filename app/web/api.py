@@ -4,6 +4,7 @@ from fastapi import FastAPI
 
 from app.db.init import db_init
 from app.telegram.client import client
+from app.telegram.registration import register_handlers
 from app.web.endpoints.channels import router as channel_router
 from app.web.endpoints.keywords import router as keyword_router
 
@@ -18,7 +19,7 @@ async def lifespan(app: FastAPI):
 
     await client.start()
 
-    # await register_handlers()
+    await register_handlers()
 
     print("Telegram client started")
 
