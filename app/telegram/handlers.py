@@ -24,7 +24,7 @@ CHANNELS = [
 ]
 
 
-@client.on(events.NewMessage(chats=CHANNELS))
+# @client.on(events.NewMessage(chats=CHANNELS))
 async def new_message_handler(event):
     message = event.message
 
@@ -36,9 +36,15 @@ async def new_message_handler(event):
 
     if keywords:
     # if any(word in message.text for word in keywords):
-        await client.send_message("me", message)
-        # message._text - атрибут, message.text - то же, только функция text() через @property, следует использовать его
-        await client.send_message("@anastasiakotiki", message)
+    #     await client.send_message("me", message)
+    #     # message._text - атрибут, message.text - то же, только функция text() через @property, следует использовать его
+    #     await client.send_message("@anastasiakotiki", message)
+
+        # переделать на структуру
+        # убрать их гит хаба
+        # формировать сообщение
+        await event.client.send_message("me", message)
+        await event.client.send_message("@anastasiakotiki", message)
 
         dto = CreateMessageDTO(
             id=event.id,

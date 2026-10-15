@@ -24,7 +24,7 @@ class ChannelRepository:
 
             return channel
 
-    async def get_active_channels(self) -> list:
+    async def get_active_channels_ids(self) -> list:
         async with async_session() as session:
             stmt = (
                 select(Channel.telegram_id,
@@ -34,7 +34,19 @@ class ChannelRepository:
 
             result = await session.execute(stmt)
 
-            return list(result.mappings().all())
+            return list(result.scalars().all())
+
+    async def get_active_channels(self) -> list[dict]:
+        async with async_session() as session:
+            stmt = (
+                select(Channel.telegram_id,
+                       Channel.title)
+                .where(Channel.is_active.is_(True))
+            )
+
+            result = await session.execute(stmt)
+
+            return [dict(row) for row in result.mappings().all()]
 
     async def get_channels(self) -> list:
         async with async_session() as session:
