@@ -13,18 +13,18 @@ from app.web.endpoints.keywords import router as keyword_router
 import app.telegram.handlers
 
 
-logging.basicConfig(
-    filename="app.log",
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s"
-)
-logging.getLogger("telethon").setLevel(logging.INFO)
+# logging.basicConfig(
+#     filename="app.log",
+#     level=logging.INFO,
+#     format="%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+# )
+# logging.getLogger("telethon").setLevel(logging.INFO)
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
 
-    await db_init()
+    # await db_init()
 
     try:
         await client.start()
