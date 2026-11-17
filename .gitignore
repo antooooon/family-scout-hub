@@ -1,20 +1,39 @@
+# Virtual environment
 .venv/
 venv/
+
+# Python cache
 __pycache__/
 *.pyc
+*.py[cod]
+
+# Environment variables
 .env
 .env.*
 !.env.example
+
+# IDE
 .idea/
+
+# Logs
+*.log
+log.txt
+
+# Telethon sessions
 *.session
 *.session-journal
+*.session-wal
+*.session-shm
+
+# DB
 *.db
 *.sqlite
 *.sqlite3
+
+# Conf
 *.ini
-*.log
-log.txt
-t.txt
+
+# Test cache
 .pytest_cache/
 .coverage
 htmlcov/
@@ -23,3 +42,6 @@ build/
 *.egg-info/
 .DS_Store
 Thumbs.db
+
+# Additional
+t.txt
