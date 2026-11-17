@@ -6,7 +6,8 @@ from pydantic import BaseModel
 class CreateMessageDTO(BaseModel):
     id: int
     channel_id: int
-    keyword_id: int
+    message_id: int
+    # keyword_id: int
     text: str
     publisher_id: int
     created_at: datetime

@@ -5,7 +5,7 @@ from telethon import TelegramClient
 from app.config.settings import settings
 
 
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 
 def create_telegram_client() -> TelegramClient:
     return TelegramClient(
@@ -19,4 +19,3 @@ def create_telegram_client() -> TelegramClient:
     )
 
 client = create_telegram_client()
-
