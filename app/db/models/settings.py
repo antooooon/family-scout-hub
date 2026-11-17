@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING
 from uuid import UUID
 
+from pydantic import BaseModel, Field
 from sqlalchemy import Integer, String, Boolean, Uuid
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -18,7 +19,7 @@ class Settings(DataBase):
 
     id: Mapped[UUID] = mapped_column(Uuid, primary_key=True)  # Foreign Key (FK) для users, user_groups
     name: Mapped[str] = mapped_column(String)
-    is_active: Mapped[bool] = mapped_column(Boolean)
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True)
 
     # --- relationships ---
     channel_settings: Mapped[list["ChannelSettings"]] = relationship(
@@ -39,4 +40,17 @@ class Settings(DataBase):
     # --- relationships ---
     match: Mapped[list["Match"]] = relationship(
         back_populates="settings"
+    )
+
+
+class SettingsCreate(BaseModel):
+    name: str = Field(
+        min_length=1,
+        max_length=100,
+        description="name of the settings",
+        examples=["Python jobs"]
+    )
+    telegram_id: int = Field(
+        description="user Telegram ID",
+        examples=[817775867]
     )

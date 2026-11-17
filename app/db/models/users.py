@@ -17,6 +17,7 @@ class User(DataBase):
                                              unique=True,
                                              nullable=False)
 
+    # --- relationships ---
     user_associations: Mapped[list["UserSettings"]] = relationship(     # Один User → много записей связей
         back_populates="user",
         cascade="all"

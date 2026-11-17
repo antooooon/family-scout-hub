@@ -23,9 +23,15 @@ class Keyword(DataBase):
         ),
     )
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    id: Mapped[int] = mapped_column(
+        Integer,
+        primary_key=True
+    )
 
-    is_active: Mapped[bool] = mapped_column(Boolean)
+    is_active: Mapped[bool] = mapped_column(
+        Boolean,
+        default=True
+    )
 
     settings_id: Mapped[UUID] = mapped_column(
         Uuid,

@@ -21,12 +21,6 @@ if TYPE_CHECKING:
 class UserSettings(DataBase):
     __tablename__ = "user_settings"
 
-    # id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    # settings_id: Mapped[uuid] = mapped_column(UUID)  # fk
-    # viewer_id: Mapped[int] = mapped_column(Integer)  # fk
-    # settings_id: Mapped[int] = ...
-    #? нужен ключ для идент. настроек (какой именно КВ, каналы и тд)
-    #? идентификатор настроек основного юзера
     user_id: Mapped[int] = mapped_column(
         ForeignKey("users.id", ondelete="CASCADE"),
         primary_key=True
@@ -54,12 +48,6 @@ class UserSettings(DataBase):
         default=lambda: datetime.now(timezone.utc),
         nullable=False
     )
-
-    # invited_by: Mapped[int | None] = mapped_column(
-    #     Integer,
-    #     ForeignKey("users.id"),
-    #     nullable=True
-    # )
 
     # --- relationships ---
     user: Mapped["User"] = relationship(            # Одна запись связи → один User

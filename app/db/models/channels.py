@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import TYPE_CHECKING
 
 from sqlalchemy import Integer, String, Boolean, DateTime, ForeignKey
@@ -24,9 +24,12 @@ class Channel(DataBase):
 
     title: Mapped[str] = mapped_column(String)
 
-    is_active: Mapped[bool] = mapped_column(Boolean)
+    is_active: Mapped[bool] = mapped_column(Boolean, default=1)
 
-    created_at: Mapped[datetime] = mapped_column(DateTime)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime,
+        default=lambda: datetime.now(timezone.utc)
+    )
 
     # --- relationships ---
     channel_settings: Mapped[list["ChannelSettings"]] = relationship(
