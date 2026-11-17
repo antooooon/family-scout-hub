@@ -43,7 +43,7 @@ Git         - Version control
 
 The application follows a layered architecture with separation between API, business logic, data access, and Telegram integration.
 
-'''text
+
 app/
 ├── db/
 │   ├── models/
@@ -58,7 +58,6 @@ app/
 │   └── ...
 ├── dependencies.py
 tests
-'''
 
 **Main architectural components:**
 
