@@ -1,12 +1,10 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class ChannelCreateDTO(BaseModel):
 
     telegram_id: int
-    username: str
-    title: str
-    is_active: bool
-    created_at: datetime
+    username: str | None = None
+    title: str | None = None

@@ -1,4 +1,7 @@
+from uuid import UUID
+
 from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.models.keywords import Keyword
 from app.db.session import async_session
@@ -6,13 +9,17 @@ from app.db.session import async_session
 
 class KeywordRepository:
 
-    async def create(self, dto) -> Keyword:
+    async def create(
+            self,
+            dto
+    ) -> Keyword:
         async with async_session() as session:
             keyword = Keyword(
                 word=dto.word,
                 is_active=dto.is_active,
-                created_at=dto.created_at
+                # created_at=dto.created_at
             )
+
             session.add(keyword)
             await session.commit()
             await session.refresh(keyword)
@@ -30,10 +37,27 @@ class KeywordRepository:
 
             return list(result.scalars().all())
 
-    async def delete(self, word: str):
+    async def create_with_settings(
+            self,
+            session: AsyncSession,
+            settings_id: UUID,
+            word: str
+    ) -> Keyword:
+        keyword = Keyword(
+            settings_id=settings_id,
+            word=word
+        )
+
+        session.add(keyword)
+        await session.flush()
+
+        return keyword
+
+    async def delete(
+            self,
+            word: str
+    ):
         ...
-
-
 # Repository не должен знать:
 #
 # Telegram это или FastAPI;
