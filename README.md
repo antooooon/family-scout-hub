@@ -44,20 +44,23 @@ Git         - Version control
 The application follows a layered architecture with separation between API, business logic, data access, and Telegram integration.
 
 
-app/
-├── db/
-│   ├── models/
-│   └── repositories
-├── services/
-├── schemas/
-├── web/
-│   └── api.py
-├── telegram/
-│   ├── handlers/
-│   ├── channels/
-│   └── ...
-├── dependencies.py
-tests
+```text
+telegram-monitor/
+├── app/
+│   ├── db/
+│   │   ├── models/
+│   │   └── repositories/
+│   ├── services/
+│   ├── schemas/
+│   ├── web/
+│   │   └── api.py
+│   ├── telegram/
+│   │   ├── handlers/
+│   │   └── channels/
+│   └── dependencies.py
+├── tests/
+└── ...
+```
 
 **Main architectural components:**
 
@@ -197,20 +200,23 @@ Git         - Контроль версий
 
 Проект использует многоуровневую архитектуру с разделением API, бизнес-логики, доступа к данным и интеграции с Telegram.
 
-app/
-├── db/
-│   ├── models/
-│   └── repositories
-├── services/
-├── schemas/
-├── web/
-│   └── api.py
-├── telegram/
-│   ├── handlers/
-│   ├── channels/
-│   └── ...
-├── dependencies.py
-tests
+```text
+telegram-monitor/
+├── app/
+│   ├── db/
+│   │   ├── models/
+│   │   └── repositories/
+│   ├── services/
+│   ├── schemas/
+│   ├── web/
+│   │   └── api.py
+│   ├── telegram/
+│   │   ├── handlers/
+│   │   └── channels/
+│   └── dependencies.py
+├── tests/
+└── ...
+```
 
 **Основные компоненты:**
 
