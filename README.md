@@ -92,7 +92,7 @@ telegram-monitor/
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/antooooon/family-scout-hub
 cd telegram-monitor
 ```
 
@@ -158,6 +158,7 @@ The project is under active development.
 - Automated tests.
 + Database migrations with Alembic.
 - Docker support.
+- Frontend
 
 ## License
 
@@ -248,7 +249,7 @@ telegram-monitor/
 Клонировать репозиторий:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/antooooon/family-scout-hub
 cd telegram-monitor
 ```
 
