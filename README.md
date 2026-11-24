@@ -156,7 +156,6 @@ The project is under active development.
 - Improved monitoring configuration management.
 - More robust Telegram connection and reconnection handling.
 - Automated tests.
-+ Database migrations with Alembic.
 - Docker support.
 - Frontend
 
@@ -313,7 +312,6 @@ uvicorn app.web.api:app --reload
 - Развитие управления конфигурациями мониторинга.
 - Улучшение обработки ошибок подключения и переподключения к Telegram.
 - Автоматизированные тесты.
-+ Миграции базы данных с Alembic.
 - Поддержка Docker.
 
 ## Лицензия
